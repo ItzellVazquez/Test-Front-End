@@ -88,6 +88,12 @@ input{
     /* left: 100px; */
     color: #ffffff;
 }
+.span-ubicacion{
+  font: normal normal bold 20px/27px Nunito;
+}
+.span-datos-footer{
+  font: normal normal normal 13px/12px Nunito;
+}
 
 
 /* slider */
