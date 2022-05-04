@@ -12,20 +12,26 @@ const contCarritoM = document.querySelector('#contadorM')
 let cantProductos = 0
 let contLocal = localStorage.getItem('contLocal',cantProductos)
 
-//eventos
+
+const form = document.querySelector('.form')
 listeners()
+contadorCarrito()
+obtenerProductos()
+
+//eventos
 function listeners(){
+    
     listaProductos.addEventListener('click',ev=>{
         cantProductos += 1 
         contCarritoW.innerHTML = cantProductos
         contCarritoM.innerHTML = cantProductos
         localStorage.setItem('contLocal',cantProductos)
     })
+    enviar.addEventListener('click',validarCampos)
 }
 
 // verifica si hay articulos contados en el carrito y si es así lo muestra
- cargarContadorCarrito()
- function cargarContadorCarrito(){
+ function contadorCarrito(){
     if(contLocal != null){
         cantProductos = contLocal*1
         contCarritoW.innerHTML = cantProductos
@@ -33,8 +39,37 @@ function listeners(){
     }
  }
 
+ //valida que los campos sean correctos 
+function validarCampos(){
+    
+    let camposCorrectos = true
+
+    if(nombre.value == ''){
+        errornombre.innerHTML = 'Nombre inválido o vacío'
+        camposCorrectos = false
+    }else{
+        errornombre.innerHTML = ''
+        camposCorrectos = true
+    }
+    if (/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email.value) == false || email.value == ''){
+        erroremail.innerHTML = 'Email inválido o vacío'
+        camposCorrectos = false
+    }else{
+        erroremail.innerHTML = ''
+        camposCorrectos = true
+    }
+
+    if (camposCorrectos) {
+        suscribir()   
+    }   
+}
+
+//envia los datos del formulario
+function suscribir(){
+
+}
+
  //Se genera la vitrina con el catalogo de productos 
-obtenerProductos()
 function obtenerProductos() {
     $.ajax({
         url: 'https://corebiz-test.herokuapp.com/api/v1/products',
@@ -71,15 +106,13 @@ function obtenerProductos() {
 
 // navegacion slider
 productContainers.forEach((item, i) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
-
+    let dimensionesContainer = item.getBoundingClientRect();
+    let anchoContainer = dimensionesContainer.width;
     nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;
+        item.scrollLeft += anchoContainer;
     })
-
     preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;
+        item.scrollLeft -= anchoContainer;
     })
 })
 

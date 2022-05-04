@@ -77,13 +77,17 @@
     </header>
 <!-- Banner -->
 <div class="row banner-container">        
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM1Z-vyzpNHF5rHHuUj3tx9uxKwqceOLSHPg&usqp=CAU" style=" height: 300px; width: 100%;" alt="">
-    <div style="  position: absolute;"><img src="waves3.png" style="height: 300px; width: 50%;" class="d-none d-md-block"  alt=""></div>
-    <div class="texto-encima text-start">
-        <span style="font-size: 30px; margin-top: 50px; margin: 50px; padding: 5rem;">¡Hola! ¿Qué es lo que buscas?</span> <br>
-        <span style="font-size: 48px; margin: 50px; padding: 5rem;">Crear o migrar</span> <br>
-        <span style="font-size: 48px; margin: 50px; padding: 5rem;">tu e-commerce?</span>
+    <img src="diseño.png" class="image-banner" alt="">
+    <div class="d-none d-md-block" style="height: 300px; width: 50%; background-color: #000000; position: absolute;">
     </div>
+    <div class="row d-block row-label-banner">
+        <div class="col-md-6 col-sm-12 d-block label-banner">
+            <h1 >¡Hola! ¿Qué es lo que buscas?</h1> <br>
+            <h1>Crear o migrar</h1> <br>
+            <h1>tu e-commerce?</h1>
+        </div>
+    </div>
+    
 </div>     
   <!-- slider -->
   <section class="product" id="products"> 
@@ -99,18 +103,20 @@
                 <div class="col-12 text-center">
                     <span class="span-grey">¡Únete a nuestras novedades y promociones!</span>
                 </div>                
-            </div>           
+            </div>               
             <div class="row mt-2">
                 <div class="col-md-3 col-sm-12"></div>
                 <div class="col-md-3 col-sm-12 mt-2">
-                    <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="" placeholder="Ingresa tu nombre">
+                    <span class="error" id="errornombre"></span>
                 </div>
                 <div class="col-md-3 col-sm-12 mt-2">
-                    <input type="text" class="form-control" placeholder="Ingresa tu email">                    
+                    <input type="text" class="form-control" id="email" name="email" value="" placeholder="Ingresa tu email">                    
+                    <span class="error" id="erroremail"></span>
                 </div>
                 <div class="col-md-2 col-sm-12 mt-2">
-                    <button class="black-btn btn-block">Suscribirme</button>
-                </div>                                                            
+                    <button type="submit" class="black-btn btn-block" id="enviar">Suscribirme</button>
+                </div>                                                                           
             </div>
         </div>
     </section>
