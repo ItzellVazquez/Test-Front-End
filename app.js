@@ -44,21 +44,29 @@ function validarCampos(){
     
     let camposCorrectos = true
 
-    if(nombre.value == ''){
-        errornombre.innerHTML = 'Nombre inválido o vacío'
+    if(nombre.value != '' && /^[a-zA-ZáéíóúÁÉÍÓÚñÑ.\s]+$/.test(nombre.value) == false){
+        errornombre.innerHTML = 'Nombre inválido'
         camposCorrectos = false
-    }else{
+    }
+    else{
         errornombre.innerHTML = ''
         camposCorrectos = true
     }
-    if (/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email.value) == false || email.value == ''){
-        erroremail.innerHTML = 'Email inválido o vacío'
+    if(nombre.value == ''){
+        errornombre.innerHTML = 'Nombre vacío'
+        camposCorrectos = false
+    }
+    if (email.value != '' && /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email.value) == false){
+        erroremail.innerHTML = 'Email inválido'
         camposCorrectos = false
     }else{
         erroremail.innerHTML = ''
         camposCorrectos = true
     }
-
+    if(email.value == ''){
+        erroremail.innerHTML = 'Email vacío'
+        camposCorrectos = false
+    }
     if (camposCorrectos) {
         suscribir()   
     }   
