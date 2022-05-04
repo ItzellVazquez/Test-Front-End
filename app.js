@@ -75,6 +75,19 @@ function validarCampos(){
 //envia los datos del formulario
 function suscribir(){
 
+    let datos
+    datos = JSON.stringify({email: email.value,name:nombre.value})
+    console.log(datos);
+    $.ajax({
+        url : 'https://corebiz-test.herokuapp.com/api/v1/newsletter',
+        type : 'POST',
+        data :  datos,
+        success : function(response) {
+        },
+    }).fail(function(response){
+    })
+
+
 }
 
  //Se genera la vitrina con el catalogo de productos 
