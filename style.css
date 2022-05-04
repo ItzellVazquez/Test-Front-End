@@ -98,11 +98,16 @@ input{
   height: 300px; 
   width: 100%;
 }
+/* footer */
 .span-ubicacion{
   font: normal normal bold 20px/27px Nunito;
 }
 .span-datos-footer{
   font: normal normal normal 13px/12px Nunito;
+}
+.logo-footer{
+  font-weight: bolder; 
+  font-size: 30px;
 }
 /* slider */
 
